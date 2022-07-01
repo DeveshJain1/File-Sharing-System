@@ -10,11 +10,11 @@ const download = require("./Controller/download")
 
 app.set('views', './views/');
 app.set("view engine", "ejs")
-mongoose.connect(process.env.DATABASE_URL)
-.then(() => console.log("Database connected!"))
-.catch(err => console.log(err));
+mongoose.connect(process.env.DATABASE_URL).then(() => console.log("Database connected!")).catch(err => console.log(err));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/public'));
+
+
 // Routes
 app.get("/", (req, res) => {
      res.render("index")
